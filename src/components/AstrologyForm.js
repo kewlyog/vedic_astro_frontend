@@ -39,7 +39,8 @@ const AstrologyForm = () => {
     setError('');
     setResult('');
     try {
-      const res = await axios.post('http://localhost:8080/api/astrology', {
+      const apiUrl = `${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/astrology`;
+      const res = await axios.post(apiUrl, {
         ...form,
         language: i18n.language,
       });
